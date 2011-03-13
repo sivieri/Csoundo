@@ -1,7 +1,7 @@
 /**
  * A Csound interface library for Processing.
  *
- * ##copyright##
+ * (c) 2010
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -18,9 +18,9 @@
  * Free Software Foundation, Inc., 59 Temple Place, Suite 330,
  * Boston, MA  02111-1307  USA
  * 
- * @author		##author##
- * @modified	##date##
- * @version		##version##
+ * @author		Jacob Joaquin http://csoundblog.com
+ * @modified	09/02/2010
+ * @version		0.1.2
  */
 
 package csoundo;

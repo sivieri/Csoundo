@@ -1,7 +1,7 @@
 /**
  * A Csound interface library for Processing.
  *
- * ##copyright##
+ * (c) 2010
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -18,9 +18,9 @@
  * Free Software Foundation, Inc., 59 Temple Place, Suite 330,
  * Boston, MA  02111-1307  USA
  * 
- * @author		##author##
- * @modified	##date##
- * @version		##version##
+ * @author		Jacob Joaquin http://csoundblog.com
+ * @modified	09/02/2010
+ * @version		0.1.2
  */
 
 package csoundo;
@@ -35,7 +35,7 @@ import csnd.*;
 
 public class Csoundo extends Thread{
 	PApplet myParent;
-	public final static String VERSION = "##version##";
+	public final static String VERSION = "0.1.2";
 
 	private String csd;
 	private String path;
@@ -89,7 +89,7 @@ public class Csoundo extends Thread{
 	}
 
 	private void welcome() {
-		System.out.println("##name## ##version## by ##author##");
+		System.out.println("csoundo 0.1.2 by Jacob Joaquin http://csoundblog.com");
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class Csoundo extends Thread{
      */
     public float get0dBFS() {
 //        if (!isRunning) return 0;
-        return csound.Get0dBFS();
+        return (float) csound.Get0dBFS();
     }
 
     /**
@@ -133,7 +133,7 @@ public class Csoundo extends Thread{
 	public float getChn(String chn) {
 //        if (!isRunning) return 0;
 //        mutex.lock();
-        float value = csound.GetChannel(chn);
+        float value = (float) csound.GetChannel(chn);
 //        mutex.unlock();
         return value;
 	}
@@ -168,7 +168,7 @@ public class Csoundo extends Thread{
 	 */
 	public float kr() {
 //        if (!isRunning) return 0;
-        return csound.GetKr();
+        return (float) csound.GetKr();
 	}
 
 	/**
@@ -271,7 +271,7 @@ public class Csoundo extends Thread{
 	 */
 	public float sr() {
 //        if (!isRunning) return 0;
-        return csound.GetSr();
+        return (float) csound.GetSr();
 	}
 
 	/**
@@ -285,7 +285,7 @@ public class Csoundo extends Thread{
 	    // TODO: If sets are locked, do gets need to be?
 //	    if (!isRunning) return 0;
 //	    mutex.lock();
-	    float value = csound.TableGet(t, i);
+	    float value = (float) csound.TableGet(t, i);
 //	    mutex.unlock();
 	    return value;
 	}
@@ -315,7 +315,7 @@ public class Csoundo extends Thread{
 //        if (!isRunning) return;
 //        mutex.lock();
         csound.TableSet(t, i, v);
-        perfThread.SetProcessCallback(0, csndConstants.CSOUND_CONTROL_CHANNEL_LIN);
+        //perfThread.SetProcessCallback(0, csndConstants.CSOUND_CONTROL_CHANNEL_LIN);
         // csoundTableSet
 //        mutex.unlock();
     }
