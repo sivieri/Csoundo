@@ -61,6 +61,21 @@ public class Engine {
 	}
 	
 	/**
+	 * The Engine constructor, usually called in the setup() method in your
+	 * sketch to initialize and start the library.
+	 * 
+	 * @param _csd The name of the csd file
+	 * @param _path The path to the csd
+	 * @param _options The options for Csound
+	 */
+	public Engine(String _csd, String _path, String _options) {
+	    csound = new Csound();
+		csd = _csd;
+		path = _path;
+		options = _options;
+	}
+	
+	/**
 	 * Setup the Csound engine and play it.
 	 */
     private void csoundPerf() {

@@ -68,6 +68,30 @@ public class Csoundo extends Thread{
         engine = new Engine(csd, path);
         
     }
+    
+    /**
+	 * The Csoundo constructor, usually called in the setup() method in your
+	 * sketch. Only supports 1 csd file for now, regardless of the number
+	 * of instances of Csoundo you are running. Your Csound csd file must
+	 * reside in the /data folder of your sketch. A temporary CSD file called
+	 * __CSOUNDO__.csd is created in your /data folder.
+	 * An optional line for Csound options is passed.
+	 * 
+	 * @param theParent The PApplet. Usually pass 'this'
+	 * @param f The Csound file to run. Requires full absolute path.
+	 * @param _options line options for Csound
+	 */
+    public Csoundo(PApplet theParent, String _csd, String _options) {
+        myParent = theParent;
+        welcome();
+        myParent.registerDispose(this);
+        myParent.registerPost(this);
+
+        path = myParent.dataPath("");
+        csd = myParent.dataPath(path + _csd);
+        engine = new Engine(csd, path, _options);
+        
+    }
 
 	public void dispose() {
 		System.out.println("Csound dispose");
